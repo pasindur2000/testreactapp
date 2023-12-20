@@ -53,7 +53,7 @@ const UserForm = (props) => {
             display: "block",
           }}
         >
-          ID
+          Name
         </Typography>
         <Input
           type="text"
