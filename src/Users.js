@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
+  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     getUsers();
@@ -22,6 +23,7 @@ const Users = () => {
   };
 
   const addUser = (data) => {
+    setSubmitted(true);
     const payload = {
       id: data.id,
       name: data.name,
