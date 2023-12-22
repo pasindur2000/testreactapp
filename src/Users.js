@@ -24,11 +24,18 @@ const Users = () => {
 
   const addUser = (data) => {
     setSubmitted(true);
+
     const payload = {
       id: data.id,
       name: data.name,
     };
-    Axios.post("http://127.0.0.1:3001/api/createuser", payload);
+    Axios.post("http://127.0.0.1:3001/api/createuser", payload)
+      .then(() => {
+        getUsers();
+      })
+      .catch((error) => {
+        console.error("Axios Error :", error);
+      });
   };
 
   return (
