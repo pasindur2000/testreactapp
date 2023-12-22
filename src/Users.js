@@ -56,11 +56,21 @@ const Users = () => {
       name: data.name,
     };
 
-    Axios.post("https://127.0.0.1:3001/api/updateuser", payload)
+    Axios.post("http://127.0.0.1:3001/api/updateuser", payload)
       .then(() => {
         getUsers();
         setSubmitted(false);
         isEdit(false);
+      })
+      .catch((error) => {
+        console.error("Axios Error :", error);
+      });
+  };
+
+  const deleteUser = (id) => {
+    Axios.post("http://127.0.0.1:3001/api/deleteuser", id)
+      .then(() => {
+        getUsers();
       })
       .catch((error) => {
         console.error("Axios Error :", error);
@@ -89,6 +99,9 @@ const Users = () => {
           setSelectedUser(data);
           setIsEdit(true);
         }}
+        deleteUser={(data) =>
+          window.confirm("Are you sure?") && deleteUser(data)
+        }
       />
     </Box>
   );
