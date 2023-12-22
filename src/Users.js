@@ -47,7 +47,7 @@ const Users = () => {
         marginTop: "100px",
       }}
     >
-      <UserForm addUser={addUser} />
+      <UserForm addUser={addUser} submitted={submitted} />
       <UsersTable rows={users} />
     </Box>
   );
