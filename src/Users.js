@@ -32,6 +32,7 @@ const Users = () => {
     Axios.post("http://127.0.0.1:3001/api/createuser", payload)
       .then(() => {
         getUsers();
+        setSubmitted(false);
       })
       .catch((error) => {
         console.error("Axios Error :", error);
@@ -46,7 +47,7 @@ const Users = () => {
         marginTop: "100px",
       }}
     >
-      <UserForm />
+      <UserForm addUser={addUser} />
       <UsersTable rows={users} />
     </Box>
   );
