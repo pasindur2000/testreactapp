@@ -21,6 +21,14 @@ const Users = () => {
       });
   };
 
+  const addUser = (data) => {
+    const payload = {
+      id: data.id,
+      name: data.name,
+    };
+    Axios.post("http://127.0.0.1:3001/api/createuser", payload);
+  };
+
   return (
     <Box
       sx={{
